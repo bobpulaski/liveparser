@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\ShowPosts;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/posts', function () {
-        return view('posts');
-    })->name('posts');
+    Route::get('/posts', ShowPosts::class)->name('posts');
 });

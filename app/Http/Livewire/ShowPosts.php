@@ -2,12 +2,17 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Post;
 use Livewire\Component;
 
 class ShowPosts extends Component
 {
+    public $posts;
+
     public function render()
     {
-        return view('livewire.show-posts', ['name' => 'Sasha']);
+        $this->posts = Post::toBase()->get();
+        //dd ($this->posts);
+        return view('livewire.show-posts', [$this->posts]);
     }
 }
